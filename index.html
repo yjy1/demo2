@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>main</title>
+
+    <style>
+        .folder_Icon{
+            background: url("./main_Images/folder.gif");
+        }
+    </style>
+</head>
+<body style="margin:0px ; overflow: hidden">
+
+   <table  width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+       <tbody>
+       <!--top顶栏-->
+       <tr height="90" width="100%">
+           <td colspan="2">
+               <iframe align="top" src="./top.html" frameborder="0" style="width:100%" width="100%" height="90px" scrolling="no"></iframe>
+           </td>
+       </tr>
+
+       <!--中间-->
+       <tr>
+           <!--左侧菜单栏-->
+           <td id="td_Left" style="border:1px solid blue; width:220px"  height="100%"  >
+               <iframe src="./desktop.html" width="220"  style="height: 596px" scrolling="no" frameborder="0"></iframe>
+           </td>
+           <!--内容区-->
+           <td style="height: 600px;" valign="top">
+               <iframe src="./customer_Guide.html"   style="width:100%; height: 600px;" frameborder="0"></iframe>
+           </td>
+       </tr>
+
+       <!--底部-->
+       <tr>
+          <td colspan="2" style="position: absolute;left: 10px;bottom: 0px;left: 0px;width: 100%;"  valign="top" height="26px">
+              <iframe src="./bottom.html" width="100%" height="26px" frameborder="0"></iframe>
+          </td>
+       </tr>
+
+       </tbody>
+   </table>
+
+   <!--隐藏项-->
+    <div>
+        <div>
+            <a href="" class="folder_Icon"></a>
+            <a href="" class="folder_Icon"></a>
+            <a href=""></a>
+            <a href=""></a>
+        </div>
+
+    </div>
+
+</body>
+</html>
