@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>desktop</title>
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/leftMenuOp.js"></script>
+    <script src="./js/jquery.easyui.min.js"></script>
+    <script src="./js/main.js"></script>
+    <link rel="stylesheet" href="./css/easyui.css">
+
+    <style>
+        #div1_2{
+            display: none;
+        }
+         body{
+            font-size: 9pt;
+        }
+         /*各个菜单项*/
+        .header{
+            background-color: #d5e4eb;
+            width: 100%;
+            height:28px;
+            line-height: 28px;
+            text-indent: 15px;
+            border-bottom: 1px solid #6699c4;
+            cursor:pointer;
+        }
+
+        .header:hover{
+            color:orange;
+        }
+        .header a:hover{
+            color:orange;
+        }
+        .header a{
+            text-decoration: none;
+            color:#000;
+        }
+
+
+        /*头像*/
+        .desktop_File_PicDiv{
+
+            display: block;
+            width: 136px;
+            height: 136px;
+            margin: 20px auto;
+        }
+        .desktop_File_PicDiv img{
+            margin-top: 5px;
+            margin-left: 5px;
+        }
+
+
+
+        .item_Style{
+            /*border:1px solid red;*/
+            border-bottom: 1px solid #6699C4;
+            height: 284px;
+            overflow-x: hidden;
+            display: none;
+        }
+        .blocked{
+            display: block;
+        }
+        .item_Style >a{
+            display: block;
+            text-indent: 6px;
+            line-height: 22px;
+            height: 22px;
+            font-size: 9pt;
+            text-decoration: none;
+            color:#000;
+            cursor:pointer;
+            font-family: Verdana, Lucida, Arial, Helvetica, "宋体", sans-serif;
+        }
+
+        .blocked a:hover{
+            background-color: white;
+        }
+        .item_Style a:hover{
+            color:white;
+            background-color: #6699c4;
+        }
+
+        /*右边框*/
+        .td_Right_Border{
+            background-color: #6093bd;
+            width:2px;
+        }
+
+        /*树形菜单*/
+        .tree_Icon_Top{
+            background: url("./desktop_Images/d.png");
+        }
+        .tree_closed{
+
+        }
+        .tree_Action{
+            height:91%;
+        }
+        ul li{
+            /*display: inline-block;*/
+            /*width: 153px;*/
+            /*background-position: -54px -1px;*/
+            /*padding-left: 4px;*/
+            /*margin-left: -34px;*/
+            /*height: 17px;*/
+        }
+
+        .item_Style a{
+            text-decoration: none;
+            color:#000;
+        }
+
+        .tree_Icon{
+            background: url("./desktop_Images/d.png");
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+        }
+
+        .tree_Classic .tree_closed >ins{
+            background-position: 52px 146px;
+        }
+        .tree_Classic a .tree_Icon{
+            background-position: -56px 127px;
+        }
+
+        .tree_Classic .tree_Leaf >ins{
+            background-position: 178px 146px;
+        }
+    </style>
+
+    <style>
+
+    </style>
+    <script>
+
+        $(function () {
+            $("#td_List .header").click(function(){
+                $(this).next(".item_Style")
+                    .slideToggle("fast").siblings(".item_Style").slideUp("fast");
+            });
+
+            $("#td_List .header a").click(function(){
+                $(this).next(".item_Style")
+                    .slideToggle("fast").siblings(".item_Style").slideUp("fast");
+            });
+        })
+
+    </script>
+
+</head>
+<body style="margin:0px;">
+<form action="">
+    <div id="div_Content">
+        <table cellpadding="0" cellspacing="0"   width="220" height="516">
+            <tbody>
+            <tr>
+                <!--菜单项-->
+                <td id="td_List" style="vertical-align: top;" width="200" >
+
+                    <div class="div_1 header" >
+                        <a href="#">我的桌面</a>
+                    </div>
+                    <div class="div_2 item_Style blocked" style="height: 284px;">
+                        <br>
+                        <div>
+                            <a class="desktop_File_PicDiv" style="cursor:pointer;">
+                                <img src="./desktop_Images/nopic.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="div_1 header">
+                        产品分类
+                    </div>
+
+                    <div class="item_Style" style="margin-left: 12px; height: 276px;">
+                        <!--菜单头-->
+                        <div style="height: 21px;padding-top: 3px;">
+                            <div style=" height: 16px;line-height: 16px;padding-left: 5px;">
+                                <a href="" style="display: block;  " >
+                                    <ins class="tree_Icon_Top" style="width: 18px;height: 16px;display: inline-block;background-position: -57px -18px;"></ins>
+                                    所有分类
+                                </a>
+                            </div>
+                        </div>
+                        <ul id="tree" style="height: 184px;"></ul>
+                    </div>
+
+                    <!--树状菜单 begin-->
+                    <!--<div class="div_1 header" >-->
+                         <!--产品分类-->
+                    <!--</div>-->
+
+                    <!--<div>-->
+
+                        <!--&lt;!&ndash;合并&ndash;&gt;-->
+                        <!--<div class="item_Style" style=" ">-->
+                            <!--&lt;!&ndash;菜单头&ndash;&gt;-->
+                            <!--<div style="height: 21px;padding-top: 3px;padding-left: 11px;">-->
+                                <!--<div style=" height: 16px;line-height: 16px;padding-left: 5px;">-->
+                                    <!--<a href="" style="display: block;  " >-->
+                                        <!--<ins class="tree_Icon_Top" style="width: 18px;height: 16px;display: inline-block;background-position: -57px -18px;"></ins>-->
+                                        <!--所有分类-->
+                                    <!--</a>-->
+                                <!--</div>-->
+                            <!--</div>-->
+
+                            <!--&lt;!&ndash;各项菜单&ndash;&gt;-->
+                            <!--<div class="tree_Action tree_Classic">-->
+
+                                <!--&lt;!&ndash;无序列表&ndash;&gt;-->
+                                <!--<ul style="height: 94%;padding-top: 0px;margin-top: -1px;">-->
+
+                                    <!--&lt;!&ndash; 一级菜单 &ndash;&gt;-->
+                                    <!--<li class="tree_closed">-->
+                                        <!--&lt;!&ndash;带响应事件的图标&ndash;&gt;-->
+                                        <!--<ins class="tree_Icon"></ins>-->
+                                        <!--&lt;!&ndash;超链接&ndash;&gt;-->
+                                        <!--<a href="" style="padding-left: 0px;margin-left: -3px;">-->
+                                            <!--<ins class="tree_Icon"></ins>-->
+                                            <!--代理产品-->
+                                        <!--</a>-->
+
+                                        <!--&lt;!&ndash; 二级菜单 &ndash;&gt;-->
+                                        <!--<ul>-->
+
+                                            <!--<li class="tree_closed">-->
+                                                <!--&lt;!&ndash;带响应事件的图标&ndash;&gt;-->
+                                                <!--<ins class="tree_Icon"></ins>-->
+                                                <!--&lt;!&ndash;超链接&ndash;&gt;-->
+                                                <!--<a href="" style="padding-left: 0px;margin-left: -3px;">-->
+                                                    <!--<ins class="tree_Icon"></ins>-->
+                                                    <!--美国AP-->
+                                                <!--</a>-->
+
+                                                <!--&lt;!&ndash;三级菜单&ndash;&gt;-->
+                                                <!--<ul>-->
+                                                    <!--<li class="tree_Leaf">-->
+                                                        <!--&lt;!&ndash;带响应事件的图标&ndash;&gt;-->
+                                                        <!--<ins class="tree_Icon"></ins>-->
+                                                        <!--&lt;!&ndash;超链接&ndash;&gt;-->
+                                                        <!--<a href="" style="padding-left: 0px;margin-left: -3px;">-->
+                                                            <!--<ins class="tree_Icon"></ins>-->
+                                                            <!--500系列-->
+                                                        <!--</a>-->
+                                                    <!--</li>-->
+
+                                                    <!--<li class="tree_Leaf">-->
+                                                        <!--&lt;!&ndash;带响应事件的图标&ndash;&gt;-->
+                                                        <!--<ins class="tree_Icon"></ins>-->
+                                                        <!--&lt;!&ndash;超链接&ndash;&gt;-->
+                                                        <!--<a href="" style="padding-left: 0px;margin-left: -3px;">-->
+                                                            <!--<ins class="tree_Icon"></ins>-->
+                                                            <!--2700系列-->
+                                                        <!--</a>-->
+                                                    <!--</li>-->
+
+                                                    <!--<li class="tree_Leaf">-->
+                                                        <!--&lt;!&ndash;带响应事件的图标&ndash;&gt;-->
+                                                        <!--<ins class="tree_Icon"></ins>-->
+                                                        <!--&lt;!&ndash;超链接&ndash;&gt;-->
+                                                        <!--<a href="" style="padding-left: 0px;margin-left: -3px;">-->
+                                                            <!--<ins class="tree_Icon"></ins>-->
+                                                            <!--通用选件-->
+                                                        <!--</a>-->
+                                                    <!--</li>-->
+
+                                                    <!--<li class="tree_Leaf">-->
+                                                        <!--&lt;!&ndash;带响应事件的图标&ndash;&gt;-->
+                                                        <!--<ins class="tree_Icon"></ins>-->
+                                                        <!--&lt;!&ndash;超链接&ndash;&gt;-->
+                                                        <!--<a href="" style="padding-left: 0px;margin-left: -3px;">-->
+                                                            <!--<ins class="tree_Icon"></ins>-->
+                                                            <!--ATS系列-->
+                                                        <!--</a>-->
+                                                    <!--</li>-->
+                                                <!--</ul>-->
+                                            <!--</li>-->
+
+                                            <!--<li class="tree_closed">-->
+                                                <!--&lt;!&ndash;带响应事件的图标&ndash;&gt;-->
+                                                <!--<ins class="tree_Icon"></ins>-->
+                                                <!--&lt;!&ndash;超链接&ndash;&gt;-->
+                                                <!--<a href="" style="padding-left: 0px;margin-left: -3px;">-->
+                                                    <!--<ins class="tree_Icon"></ins>-->
+                                                    <!--德国Klippel-->
+                                                <!--</a>-->
+                                            <!--</li>-->
+
+                                            <!--<li class="tree_Leaf">-->
+                                                <!--&lt;!&ndash;带响应事件的图标&ndash;&gt;-->
+                                                <!--<ins class="tree_Icon"></ins>-->
+                                                <!--&lt;!&ndash;超链接&ndash;&gt;-->
+                                                <!--<a href="" style="padding-left: 0px;margin-left: -3px;">-->
+                                                    <!--<ins class="tree_Icon"></ins>-->
+                                                    <!--ACO-->
+                                                <!--</a>-->
+                                            <!--</li>-->
+
+                                            <!--<li class="tree_closed">-->
+                                                <!--&lt;!&ndash;带响应事件的图标&ndash;&gt;-->
+                                                <!--<ins class="tree_Icon"></ins>-->
+                                                <!--&lt;!&ndash;超链接&ndash;&gt;-->
+                                                <!--<a href="" style="padding-left: 0px;margin-left: -3px;">-->
+                                                    <!--<ins class="tree_Icon"></ins>-->
+                                                    <!--QD-->
+                                                <!--</a>-->
+                                            <!--</li>-->
+                                        <!--</ul>-->
+                                    <!--</li>-->
+
+                                    <!--<li class="tree_closed">-->
+                                        <!--&lt;!&ndash;带响应事件的图标&ndash;&gt;-->
+                                        <!--<ins class="tree_Icon"></ins>-->
+                                        <!--&lt;!&ndash;超链接&ndash;&gt;-->
+                                        <!--<a href="" style="padding-left: 0px;margin-left: -3px;">-->
+                                            <!--<ins class="tree_Icon"></ins>-->
+                                            <!--自有产品-->
+                                        <!--</a>-->
+                                    <!--</li>-->
+
+
+                                    <!--<li class="tree_closed">-->
+                                        <!--&lt;!&ndash;带响应事件的图标&ndash;&gt;-->
+                                        <!--<ins class="tree_Icon"></ins>-->
+                                        <!--&lt;!&ndash;超链接&ndash;&gt;-->
+                                        <!--<a href="" style="padding-left: 0px;margin-left: -3px;">-->
+                                            <!--<ins class="tree_Icon"></ins>-->
+                                            <!--经销产品-->
+                                        <!--</a>-->
+                                    <!--</li>-->
+
+                                    <!--<li class="tree_closed">-->
+                                        <!--&lt;!&ndash;带响应事件的图标&ndash;&gt;-->
+                                        <!--<ins class="tree_Icon"></ins>-->
+                                        <!--&lt;!&ndash;超链接&ndash;&gt;-->
+                                        <!--<a href="" style="padding-left: 0px;margin-left: -3px;">-->
+                                            <!--<ins class="tree_Icon"></ins>-->
+                                            <!--所有物料-->
+                                        <!--</a>-->
+                                    <!--</li>-->
+                                    <!--<li class="tree_closed">-->
+                                        <!--&lt;!&ndash;带响应事件的图标&ndash;&gt;-->
+                                        <!--<ins class="tree_Icon"></ins>-->
+                                        <!--&lt;!&ndash;超链接&ndash;&gt;-->
+                                        <!--<a href="" style="padding-left: 0px;margin-left: -3px;">-->
+                                            <!--<ins class="tree_Icon"></ins>-->
+                                            <!--产品BOM-->
+                                        <!--</a>-->
+                                    <!--</li>-->
+
+                                    <!--<li class="tree_Leaf">-->
+                                        <!--&lt;!&ndash;带响应事件的图标&ndash;&gt;-->
+                                        <!--<ins class="tree_Icon"></ins>-->
+                                        <!--&lt;!&ndash;超链接&ndash;&gt;-->
+                                        <!--<a href="" style="padding-left: 0px;margin-left: -3px;">-->
+                                            <!--<ins class="tree_Icon"></ins>-->
+                                            <!--工治具-->
+                                        <!--</a>-->
+                                    <!--</li>-->
+                                    <!--<li class="tree_Leaf">-->
+                                        <!--&lt;!&ndash;带响应事件的图标&ndash;&gt;-->
+                                        <!--<ins class="tree_Icon"></ins>-->
+                                        <!--&lt;!&ndash;超链接&ndash;&gt;-->
+                                        <!--<a href="" style="padding-left: 0px;margin-left: -3px;">-->
+                                            <!--<ins class="tree_Icon"></ins>-->
+                                            <!--第三方检测-->
+                                        <!--</a>-->
+                                    <!--</li>-->
+
+                                    <!--<li class="tree_Leaf">-->
+                                        <!--&lt;!&ndash;带响应事件的图标&ndash;&gt;-->
+                                        <!--<ins class="tree_Icon"></ins>-->
+                                        <!--&lt;!&ndash;超链接&ndash;&gt;-->
+                                        <!--<a href="" style="padding-left: 0px;margin-left: -3px;">-->
+                                            <!--<ins class="tree_Icon"></ins>-->
+                                            <!--自动化物料-->
+                                        <!--</a>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+
+
+                        <!--&lt;!&ndash;<div class="div_2 item_Style">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<a href="">▪ 邮件管理</a>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<a href="">▪ 手机短信</a>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<a href="">▪ 电子传真</a>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<a href="">▪ 即时通讯</a>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<a href="">▪ 内部讨论</a>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                    <!--</div>-->
+                    <!--树状菜单 end-->
+
+                    <div id="div3_1" class="header">
+                          来电管理
+                    </div>
+                    <div id="div3_2" class="item_Style">
+                        <a href="">▪ 来电登记</a>
+                        <a href="">▪ 来电处理</a>
+                        <a href="">▪ 通话汇总</a>
+                        <a href="">▪ 通话记录</a>
+                    </div>
+
+                    <div id="div4_1" class="header">
+                        公告事务
+                    </div>
+                    <div id="div4_2" class="item_Style">
+                        <a href="">▪ 新闻公告</a>
+                        <a href="">▪ 文档管理</a>
+                        <a href="">▪ 文档共享</a>
+
+                        <a href="" style="border-top: 1px solid #b5b5b5">▪ 日程安排</a>
+                        <a href="">▪ 事务管理</a>
+                        <a href="">▪ 工作日志</a>
+
+                        <a href="" style="border-top: 1px solid #b5b5b5">▪ 工作计划</a>
+                        <a href="">▪ 工作总结</a>
+                        <a href="">▪ 任务布置</a>
+                        <a href="">▪ 考勤签到</a>
+
+                    </div>
+
+                    <div id="div5_1" class="header">
+                    申请管理
+                    </div>
+                    <div id="div5_2" class="item_Style">
+                        <a href="">· 出差申请</a>
+                        <a href="">· 加班申请</a>
+                        <a href="">· 请假申请</a>
+                        <a href="">· 佣金申请</a>
+
+                        <a href="" style="border-top: 1px solid #b5b5b5">· 开票申请</a>
+                        <a href="">· 延误付款</a>
+                        <a href="">· 维修申请</a>
+                        <a href="">· 维修跟踪</a>
+
+                        <a href="" style="border-top: 1px solid #b5b5b5">· 采购申请</a>
+                        <a href="">· 入库通知</a>
+                        <a href="">· 备货申请</a>
+                        <a href="">· 其它申请</a>
+
+                        <a href="" style="border-top: 1px solid #b5b5b5">· 费用申请</a>
+                        <a href="">· 费用报销</a>
+
+                        <a href="" style="border-top: 1px solid #b5b5b5">· 借款申请</a>
+                    </div>
+
+                    <div id="div6_1" class="header">
+                   会议管理
+                    </div>
+                    <div id="div6_2" class="item_Style">
+                        <a href="">· 会议室设置</a>
+                        <a href="">· 会议申请</a>
+                        <a href="">· 会议管理</a>
+                        <a href="">· 我的会议</a>
+                    </div>
+
+                    <div id="div7_1" class="header">
+                     点评管理
+                </div>
+                    <div id="div7_2" class="item_Style">
+                        <a href="">· 上级给我的点评</a>
+                        <a href="">· 我给下属的点评</a>
+                    </div>
+
+                    <div id="div8_1" class="header">
+                    常用工具
+                    </div>
+                    <div id="div8_2" class="item_Style">
+                        <a href="">· 我的硬盘</a>
+                        <a href="">· 共享目录</a>
+                        <a href="">· 回收站</a>
+
+                        <a href="" style="border-top: 1px solid #b5b5b5">· 满意度调查</a>
+                        <a href="">· 内部通讯录</a>
+                        <a href="">· 个人通讯录</a>
+                        <a href="">· 公用收藏夹</a>
+                        <a href="">· 个人收藏夹</a>
+                        <a href="">· 失联附件</a>
+                        <a href="">· 更多工具...</a>
+                    </div>
+
+                    <!--<div class="header"></div>-->
+                    <div class="header blank" style="background-color: #D5E4EB;height: 284px;"></div>
+                </td>
+                <!--右边框-->
+                <td class="td_Right_Border">
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</form>
+</body>
+</html>

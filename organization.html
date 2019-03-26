@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>organization</title>
+    <script src="./js/jquery.min.js"></script>
+</head>
+
+<style>
+    .root_Box{
+        width: 122px;
+        height: 88px;
+        background: url("./organization_Images/org.jpg") no-repeat;
+        position: absolute;
+        left: 346px;
+        top: 69px;
+    }
+
+    .depart_Box_S{
+        width: 91px;
+        height: 98px;
+        background: url("./organization_Images/org_Depart_s.jpg") no-repeat;
+        position: absolute;
+        left: 361px;
+        top: 206px;
+    }
+    .department_Templet{
+        width: 91px;
+        height: 98px;
+        background: url("./organization_Images/org_Depart_s.jpg") no-repeat;
+        position: absolute;
+        left: 104px;
+        top: 1px;
+    }
+
+
+    .bg_Frame{
+
+    }
+
+    .bg_Boder{
+        border: 1px solid #b7c9e8;
+        height: 416px;
+        width: 1148px;
+        margin-top: -13px;
+    }
+    .head_Table_Bg1{
+        background: url("./organization_Images/cmtable_r1_c1.gif") no-repeat;
+        width:29px;
+        height:40px;
+    }
+    .td_Header_Title{
+        background: url("./organization_Images/cmtable_r1_c2.gif") repeat-x;
+        width:1109px;
+        height:40px;
+        font-size: 12px;
+
+    }
+    .head_Table_Bg4{
+        background: url("./organization_Images/cmtable_r1_c6.gif") no-repeat;
+        width:40px;
+        height:40px;
+    }
+    .add_Department{
+        position: absolute;
+        left: 668px;
+        top: 287px;
+    }
+
+    .remove_Department{
+        position: absolute;
+        left: 729px;
+        top: 287px;
+    }
+
+    .vertica_Line_Add{
+        position: absolute;
+        left: 201px;
+        top: -57px;
+        width:100px;
+        height:100px;
+        border:1px solid red;
+
+    }
+
+    .vertica_Line{
+        width: 9px;
+        height: 19px;
+        border-left: 2px solid rgb(193, 217, 243);
+        position: absolute;
+        left: 361px;
+        top: 206px;
+    }
+
+    .horizon_Line{
+        width: 109px;
+        height: 19px;
+        border-top: 2px solid rgb(193, 217, 243);
+        position: absolute;
+        left: 361px;
+        top: 206px;
+    }
+
+</style>
+
+
+<script>
+    $(function () {
+
+        //新增部门
+        $(".add_Department").click(function () {
+
+            $(".depart_Box_S").last().append("  <div class=\"depart_Box_S\"  style=\"text-align: center; " +
+                "left: 104px;\n" +
+                "        top: 1px;\">\n" +
+                "        <div style=\"height: 20px\"></div>\n" +
+                "        <span style=\"cursor: default; font-size: 12px;font-weight: bold\" title=\"\">${data}</span>\n" +
+                "        <br>\n" +
+                "        <br>\n" +
+                "        <span></span>\n" +
+                "    </div>");
+
+            //竖线
+
+            $(".vertica_Line").last().append(" <div class=\"vertica_Line\"  style=\"text-align: center; " +
+                "left: 104px;\n" +
+                "        top: 1px;\">\n" +
+                "        <div style=\"height: 20px\"></div>\n" +
+                "        <span style=\"cursor: default; font-size: 12px;font-weight: bold\" title=\"\"></span>\n" +
+                "        <br>\n" +
+                "        <br>\n" +
+                "        <span></span>\n" +
+                "    </div>");
+
+            //横线
+            $(".horizon_Line").last().append("  <div class=\"horizon_Line\"  style=\"text-align: center; " +
+                "left: 104px;\n" +
+                "        top: -2px;\">\n" +
+                "    </div>");
+
+        });
+
+        //删除部门
+        $(".remove_Department").click(function () {
+            $(".depart_Box_S").last().remove();
+            $(".vertica_Line").last().remove();
+            $(".horizon_Line").last().remove();
+        })
+    })
+</script>
+
+<body>
+
+<!--点击按钮增加一个空的部门模板-->
+<button class="add_Department">新增</button>
+
+<!--点击按钮删除一个空的部门模板-->
+<button class="remove_Department">删除</button>
+
+<!--背景框-->
+<form action="">
+    <div class="bg_Frame" >
+
+        <table cellpadding="0" cellspacing="0">
+            <tbody>
+                <tr>
+                    <td class="head_Table_Bg1"></td>
+                    <td class="td_Header_Title"  >组织结构图</td>
+                    <td class="head_Table_Bg4"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!--背景边框-->
+        <div class="bg_Boder">
+
+        </div>
+    </div>
+
+
+</form>
+
+<!--公司名-->
+<div>
+
+    <div class="root_Box"  style="text-align: center;">
+        <div style="height: 20px"></div>
+        <span style="cursor: default; font-size: 12px;font-weight: bold" title="深圳市爱普泰科电子有限公司">深圳市爱普泰科电子有限公司</span>
+        <br>
+        <br>
+        <span></span>
+    </div>
+</div>
+
+
+<!--总经办-->
+<div>
+    <div class="depart_Box_S"  style="text-align: center;">
+        <div style="height: 20px"></div>
+        <span style=" font-size: 12px;font-weight: bold" >总经办</span>
+        <br>
+        <br>
+        <span></span>
+    </div>
+</div>
+
+
+<!--各个部门-->
+<div>
+    <div class="depart_Box_S"  style="text-align: center; left: 53px;top:340px">
+        <div style="height: 20px"></div>
+        <span style=" font-size: 12px;font-weight: bold" >采购部</span>
+        <br>
+        <br>
+        <span></span>
+    </div>
+</div>
+
+
+<div>
+    <div class="depart_Box_S"  style="text-align: center; left: 156px;top:340px">
+        <div style="height: 20px"></div>
+        <span style=" font-size: 12px;font-weight: bold" >财务部</span>
+        <br>
+        <br>
+        <span></span>
+    </div>
+</div>
+
+
+
+<div>
+    <div class="depart_Box_S"  style="text-align: center; left: 259px;top:340px">
+        <div style="height: 20px"></div>
+        <span style=" font-size: 12px;font-weight: bold" >销售部</span>
+        <br>
+        <br>
+        <span></span>
+    </div>
+</div>
+
+<div>
+    <div class="depart_Box_S"  style="text-align: center; left: 362px;top:340px">
+        <div style="height: 20px"></div>
+        <span style=" font-size: 12px;font-weight: bold" >开发部</span>
+        <br>
+        <br>
+        <span></span>
+    </div>
+</div>
+
+
+<div>
+    <div class="depart_Box_S"  style="text-align: center; left: 465px;top:340px">
+        <div style="height: 20px"></div>
+        <span style=" font-size: 12px;font-weight: bold" >应用工程部</span>
+        <br>
+        <br>
+        <span></span>
+    </div>
+</div>
+
+<div>
+    <div class="depart_Box_S"  style="text-align: center; left: 568px;top:340px">
+        <div style="height: 20px"></div>
+        <span style=" font-size: 12px;font-weight: bold" >品质部</span>
+        <br>
+        <br>
+        <span></span>
+    </div>
+</div>
+
+<div>
+    <div class="depart_Box_S"  style="text-align: center; left: 671px;top:340px">
+        <div style="height: 20px"></div>
+        <span style=" font-size: 12px;font-weight: bold" >生产部</span>
+        <br>
+        <br>
+        <span></span>
+    </div>
+</div>
+
+
+<!--横线 1-->
+<div class="horizon_Line" style="border-top: 2px solid rgb(193, 217, 243);
+width: 106px;
+height: 51px;
+position: absolute;
+left: 717px;
+top: 321px;"></div>
+
+
+<!--竖线 1-->
+<div class="vertica_Line" style="border-left: 2px solid rgb(193, 217, 243);
+width: 5px;
+position: absolute;
+left: 404px;
+height: 51px;
+top: 155px;"></div>
+
+
+<!--竖线-->
+<div class="vertica_Line" style="border-left: 2px solid rgb(193, 217, 243);
+width: 5px;
+position: absolute;
+left: 405px;
+height: 37px;
+top: 303px;"></div>
+
+
+<!--横线-->
+<div style="border-top: 2px solid rgb(193, 217, 243);
+width: 620px;
+position: absolute;
+left: 97px;
+height: 37px;
+top: 321px;"></div>
+
+
+<!--竖线-->
+<div class="vertica_Line" style="border-left: 2px solid rgb(193, 217, 243);
+position: absolute;
+height: 19px;
+width: 5px;
+left: 97px;
+top: 321px;"></div>
+
+<!--竖线-->
+<div class="vertica_Line" style="border-left: 2px solid rgb(193, 217, 243);
+position: absolute;
+height: 19px;
+width: 5px;
+left:201px;
+top: 321px;"></div>
+
+<!--竖线3-->
+<div class="vertica_Line" style="border-left: 2px solid rgb(193, 217, 243);
+position: absolute;
+height: 19px;
+width: 5px;
+left: 303px;
+top: 321px;"></div>
+
+
+<!--竖线4-->
+<div class="vertica_Line" style="border-left: 2px solid rgb(193, 217, 243);
+position: absolute;
+height: 19px;
+width: 5px;
+left:509px;
+top: 321px;"></div>
+
+
+<!--竖线5-->
+<div class="vertica_Line" style="border-left: 2px solid rgb(193, 217, 243);
+position: absolute;
+height: 19px;
+width: 5px;
+left: 612px;
+top: 321px;"></div>
+
+
+<!--竖线6-->
+<div class="vertica_Line" style="border-left: 2px solid rgb(193, 217, 243);
+position: absolute;
+height: 19px;
+width: 5px;
+left:715px;
+top: 321px;"></div>
+
+
+
+
+</body>
+</html>

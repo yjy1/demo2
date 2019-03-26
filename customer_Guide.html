@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>customer_Guide</title>
+
+    <link rel="stylesheet" href="./css/easyui.css">
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/jquery.easyui.min.js"></script>
+    <style>
+        .module_Left{
+            background: url("./customer_Guide_Images/module_Left.gif") no-repeat;
+            height:33px;
+
+        }
+        .module_Middle{
+            background: url("./customer_Guide_Images/module_Middle.gif") ;
+        }
+        .left_Logo{
+            background: url("./customer_Guide_Images/5.gif");
+            width:13px;
+            height: 13px;
+            display: block;
+            margin-left: 5px;
+            margin-top: 4px;
+        }
+        .bigSpan{
+            font-size: 14px;
+            font-weight: bold;
+            padding-left: 5px;
+        }
+
+        /*图示区*/
+        .h_r{
+            background: url("./customer_Guide_Images/h-r.gif") no-repeat;
+            width:50px;
+            height:50px;
+        }
+        #chart_Content  a{
+            text-decoration: none;
+            color:black;
+            font-size: 12px;
+
+        }
+
+        ul{
+            list-style: none;
+        }
+        .item_Doute{
+            margin-right: 10px;
+        }
+
+        /*常用功能区*/
+        #td_Middle{
+            border-left: 1px dashed #e0e4ed ;
+            width:200px;
+        }
+        #td_Middle a{
+            text-decoration: none;
+            font-size: 12px;
+            line-height: 23px;
+            height: 23px;
+            display: block;
+            text-indent: 15px;
+        }
+        #td_Middle a:hover{
+            background-color: #6699C4;
+        }
+
+        #td_Item_List{
+            padding-top:5px;
+        }
+
+        .module_Left_Bottom{
+            background: url("./customer_Guide_Images/module_Left_Bottom.gif") no-repeat;
+            height: 5px;
+        }
+        .module_Middle_Bottom{
+            background: url("./customer_Guide_Images/module_Middle_Bottom.gif") repeat-x;
+        }
+
+        /*折叠区*/
+        .module_Middle_Bottom{
+            background: url("./customer_Guide_Images/module_Middle_Bottom.gif") repeat-x;
+        }
+        .module_Right{
+            background: url("./customer_Guide_Images/module_Right.gif");
+            height:33px;
+        }
+        .div_Right_Content{
+            padding-top: 5px;
+
+        }
+
+        .modulel_Middle_Bottom{
+            background: url("./customer_Guide_Images/module_Middle_Bottom.gif")  repeat-x;
+        }
+        .module_Right_Bottom{
+            background: url("./customer_Guide_Images/module_Right_Bottom.gif") no-repeat;
+        }
+
+    </style>
+
+    <style>
+        <!--加个类 按钮激活时的状态-->
+        .a{
+            display: none;
+        }
+    </style>
+
+    <script>
+        $(function () {
+            $(".tb_Btn").click(function () {
+
+                // $("#td_Middle").addClass("a");
+                $("#td_Middle").toggle()
+            })
+
+        })
+    </script>
+</head>
+
+
+<body style="background:white;" margin="10px" padding="0">
+
+
+<form action="">
+
+    <div></div>
+
+    <table  width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tbody>
+        <tr>
+
+            <!--图示区-->
+            <td style=" height:100% " valign="top">
+
+                <!--白条-->
+                <table  style="width:100%; height:33px"   border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                    <tr>
+
+                        <td style="" class="module_Left" width="6px"></td>
+
+                        <td  style="" class="module_Middle" width="13px">
+                            <span class="left_Logo"></span>
+                        </td>
+
+                        <td  style="  " class="module_Middle" align="center">
+                            <span class="bigSpan">客户管理导航图</span>
+                        </td>
+
+                    </tr>
+                    </tbody>
+                </table>
+
+                <div id="chart_Content" style=" height: 446px; border-left:1px solid #e0e4ed" align="center" >
+                    <!--用来占位的div-->
+                    <div style="width:851px; height:20px; "></div>
+
+                    <table border="0" id="nav_Table" style="background-color: white; width:850px; padding-top: 19px; ">
+                        <tbody>
+                        <!--首行-->
+                        <tr>
+                            <!--客户管理-->
+                            <td style=" width:67.5px;" rowspan="15" align="center">
+                                <table cellspacing="0" cellpadding="0" border="0">
+                                    <tbody>
+                                    <!--图标-->
+                                    <tr>
+                                        <td style="width:67.5px;" align="center">
+                                            <a href="" title="添加">
+                                                <img src="./customer_Guide_Images/allClient_l.png" alt="">
+                                            </a>
+                                        </td>
+                                    </tr>
+
+                                    <!--文字说明-->
+                                    <tr>
+                                        <td align="center">
+                                            <a href="">客户管理</a>
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </td>
+
+
+                            <!--箭头-->
+                            <td width="67.5" rowspan="15" align="center">
+                                <div class="h_r"></div>
+                            </td>
+
+
+                            <!--中括号-->
+                            <td style="width:67.5px" rowspan="15" align="center">
+                                <img src="./customer_Guide_Images/reserve-l_Big.gif" alt="">
+                            </td>
+
+                            <!--销售机会图标-->
+                            <td style="width:67.5px" align="center">
+                                <a href="" title="添加销售机会">
+                                    <img src="./customer_Guide_Images/chance.jpg" alt="">
+                                </a>
+                            </td>
+
+                            <!--箭头-->
+                            <td style="width:67.5px" align="center">
+                                <div class="h_r"></div>
+                            </td>
+
+                            <!--待办事务-->
+                            <td style="width:67.5px" align="center">
+                                <a href="" title="添加待办事务">
+                                    <img src="./customer_Guide_Images/Common_Schedule_l.png" alt="">
+                                </a>
+                            </td>
+
+                            <!--箭头-->
+                            <td style="width:67.5px" align="center">
+                                <div class="h_r"></div>
+                            </td>
+
+                            <!--联系记录 img-->
+                            <td style="width:67.5px" align="center">
+                                <a href="" title="添加联系记录">
+                                    <img src="./customer_Guide_Images/Common_ContactRecord_l.png" alt="">
+                                </a>
+                            </td>
+
+                            <!--箭头-->
+                            <td style="width:67.5px" align="center">
+                                <div class="h_r"></div>
+                            </td>
+
+                            <!--客户报价 img-->
+                            <td align="center">
+                                <a href="" title="客户报价" align="center">
+                                    <img src="./customer_Guide_Images/saleQuote_l.png" alt="">
+                                </a>
+                            </td>
+                        </tr>
+
+                        <!--第二行 用于占位-->
+                        <tr>
+                            <td colspan="7" align="center" style="height:5px; width:67.5px; " ></td>
+                        </tr>
+
+                        <!--说明-->
+                        <tr>
+                            <td  style="width:67.5px" align="center">
+                                <a href="">销售机会</a>
+                            </td>
+                            <td style="width:67.5px"></td>
+
+                            <td  style="width:67.5px" align="center">
+                                <a href="">待办事务</a>
+                            </td>
+                            <td style="width:67.5px"></td>
+
+                            <td  style="width:67.5px" align="center">
+                                <a href="">联系记录</a>
+                            </td>
+                            <td style="width:67.5px"></td>
+
+                            <td  style="width:67.5px" align="center">
+                                <a href="">客户报价</a>
+                            </td>
+
+                        </tr>
+
+                        <!--占位用-->
+                        <tr>
+                            <td style="width:67.5px; height: 5px" colspan="7" align="center"></td>
+                        </tr>
+
+                        <!--以联系人开头-->
+                        <tr>
+                            <td align="center">
+                                <a href="" title="添加联系人"  style="width:67.5px;">
+                                    <img src="./customer_Guide_Images/CM_ObjectLinkman_l.png" alt="">
+                                </a>
+                            </td>
+                            <td align="center" >
+                                <div class="h_r"></div>
+                            </td>
+
+                            <td align="center">
+                                <a href="" title="添加客户服务"  style="width:67.5px;">
+                                    <img src="./customer_Guide_Images/After_Service_l.png" alt="">
+                                </a>
+                            </td >
+                            <td align="center">
+                                <div class="h_r"></div>
+                            </td>
+
+
+                            <td align="center">
+                                <a href="" title="添加客户投诉"  style="width:67.5px;">
+                                    <img src="./customer_Guide_Images/After_Complaint_l.png" alt="">
+                                </a>
+                            </td>
+                            <td align="center">
+                                <div class="h_r"></div>
+                            </td>
+
+                            <td align="center">
+                                <a href="" title="添加客户关怀"  style="width:67.5px;">
+                                    <img src="./customer_Guide_Images/After_CareForObject_l.png" alt="">
+                                </a>
+                            </td>
+
+                        </tr>
+
+                        <!--以联系人开头的说明-->
+                        <tr>
+                            <td align="center">
+                                <a href="">联系人</a>
+                            </td>
+                            <td width="81"></td>
+
+                            <td align="center">
+                                <a href="">客户服务</a>
+                            </td>
+                            <td width="81"></td>
+
+
+                            <td align="center">
+                                <a href="">客户投诉</a>
+                            </td>
+                            <td width="81"></td>
+
+
+                            <td align="center">
+                                <a href="">关怀客户</a>
+                            </td>
+                            <td width="81"></td>
+                        </tr>
+
+                        <!--占位行-->
+                        <tr height="5" width="67.5"></tr>
+
+                        <!--以客户发货为首-->
+                        <tr>
+                            <td align="center">
+                                <a href="" title="添加发货">
+                                    <img src="./customer_Guide_Images/WMS_ObjectConsignment_l.png" alt="">
+                                </a>
+                            </td>
+                            <td align="center">
+                                <div class="h_r"></div>
+                            </td>
+
+                            <td align="center">
+                                <a href="" title="添加开票">
+                                    <img src="./customer_Guide_Images/PM_Project_RegistrationAppeal_l.png" alt="">
+                                </a>
+                            </td>
+                            <td align="center">
+                                <div class="h_r"></div>
+                            </td>
+
+                            <td align="center">
+                                <a href="" title="维修管理">
+                                    <img src="./customer_Guide_Images/systemSetting_l.png" alt="">
+                                </a>
+                            </td>
+
+                        </tr>
+
+                        <!--占位行-->
+                        <tr>
+                            <td style="width:67.5px; height:5px;"></td>
+                        </tr>
+
+                        <!--以客户发货为首的说明-->
+                        <tr>
+
+                            <td align="center">
+                                <a href="">客户发货</a>
+                            </td>
+                            <td style="width:67.5px"></td>
+
+                            <td align="center">
+                                <a href="">销售开票</a>
+                            </td>
+                            <td style="width:67.5px"></td>
+
+                            <td align="center">
+                                <a href="">维修管理</a>
+                            </td>
+
+                        </tr>
+
+                        <!--占位行-->
+                        <tr>
+                            <td style="width:67.5px; height:5px;" colspan="7"></td>
+                        </tr>
+
+                        <!--以客户费用为首-->
+                        <tr>
+                            <td align="center">
+                                <a href="" title="添加客户费用">
+                                    <img src="./customer_Guide_Images/FMS_BusinessCost_l.png" alt="">
+                                </a>
+                            </td>
+                        </tr>
+
+                        <!--占位行-->
+                        <tr>
+                            <td style="width:67.5px; height:5px;" colspan="7"></td>
+                        </tr>
+
+                        <tr align="center">
+                            <td style="width:67.5px;">
+                                <a href="">客户费用</a>
+                            </td>
+                        </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <!--待定-->
+                <table style="width:100%; height:6px;" cellpadding="0" cellspacing="0" border="0">
+                    <tbody>
+                    <tr>
+                        <td class="module_Left_Bottom" style="width:6px;"></td>
+                        <td class="module_Middle_Bottom"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+
+            <!--常用功能区-->
+            <td id="td_Middle" style=" "  valign="top">
+
+                <!--标题及自定义功能-->
+                <table style="width:100%; height: 33px; " border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                    <tr>
+                        <td class="module_Middle" align="left">
+                            <span class="bigSpan">常用功能</span>
+                        </td>
+
+                        <td class="module_Middle" style="width:20px; text-align: right;">
+                            <a href="" title="自定义功能项"  >
+                                <img src="./customer_Guide_Images/edit-hover.png" align="absmiddle">
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <!--功能项-->
+                <table style="width:100%" cellspacing="0" cellpadding="0" border="0" >
+                    <tbody>
+                    <tr>
+                        <td id="td_Item_List" colspan="2" style="vertical-align: top">
+                            <ul style="height:441px;margin-top: 0px;padding-left: 0px;margin-bottom: 0px;">
+
+                                <li>
+                                    <a href="" title="我的客户列表">
+
+                                        <span class="item_Doute">
+                                            <img src="./customer_Guide_Images/item.gif" alt="">
+                                        </span>
+
+                                        我的客户列表
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="" title="联系人列表">
+
+                                       <span class="item_Doute">
+                                            <img src="./customer_Guide_Images/item.gif" alt="">
+                                        </span>
+                                        联系人列表
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" title="销售机会列表">
+
+                                         <span class="item_Doute">
+                                            <img src="./customer_Guide_Images/item.gif" alt="">
+                                        </span>
+                                        销售机会列表
+                                    </a>
+                                </li>
+
+
+                                <li>
+                                    <a href="" title="待办事务列表">
+
+                                        <span class="item_Doute">
+                                            <img src="./customer_Guide_Images/item.gif" alt="">
+                                        </span>
+                                        待办事务列表
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="" title="联系记录列表">
+
+                                        <span class="item_Doute">
+                                            <img src="./customer_Guide_Images/item.gif" alt="">
+                                        </span>
+                                        联系记录列表
+                                    </a>
+                                </li>
+
+
+                                <li>
+                                    <a href="" title="联系记录汇总">
+
+                                        <span class="item_Doute">
+                                            <img src="./customer_Guide_Images/item.gif" alt="">
+                                        </span>
+                                        联系记录汇总
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="" title="报价单列表">
+
+                                       <span class="item_Doute">
+                                            <img src="./customer_Guide_Images/item.gif" alt="">
+                                        </span>
+                                        报价单列表
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="" title="样品送出列表">
+
+                                        <span class="item_Doute">
+                                            <img src="./customer_Guide_Images/item.gif" alt="">
+                                        </span>
+                                        样品送出列表
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="" title="样品返还列表">
+
+                                        <span class="item_Doute">
+                                            <img src="./customer_Guide_Images/item.gif" alt="">
+                                        </span>
+                                        样品返还列表
+                                    </a>
+                                </li>
+
+
+                                <li>
+                                    <a href="" title="发货记录列表">
+
+                                       <span class="item_Doute">
+                                            <img src="./customer_Guide_Images/item.gif" alt="">
+                                        </span>
+                                        发货记录列表
+                                    </a>
+                                </li>
+
+
+                                <li>
+                                    <a href="" title="开票记录列表">
+
+                                         <span class="item_Doute">
+                                            <img src="./customer_Guide_Images/item.gif" alt="">
+                                        </span>
+                                        开票记录列表
+                                    </a>
+                                </li>
+
+
+                                <li>
+                                    <a href="" title="客户服务列表">
+
+                                        <span class="item_Doute">
+                                            <img src="./customer_Guide_Images/item.gif" alt="">
+                                        </span>
+                                        客户服务列表
+                                    </a>
+                                </li>
+
+
+                                <li>
+                                    <a href="" title="客户投诉列表">
+
+                                         <span class="item_Doute">
+                                            <img src="./customer_Guide_Images/item.gif" alt="">
+                                        </span>
+                                        客户投诉列表
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="" title="客户关怀列表">
+
+                                        <span class="item_Doute">
+                                            <img src="./customer_Guide_Images/item.gif" alt="">
+                                        </span>
+                                        客户关怀列表
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="" title="客户费用列表">
+
+                                        <span class="item_Doute">
+                                            <img src="./customer_Guide_Images/item.gif" alt="">
+                                        </span>
+                                        客户费用列表
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="" title="客户记事列表">
+
+                                         <span class="item_Doute">
+                                            <img src="./customer_Guide_Images/item.gif" alt="">
+                                        </span>
+                                        客户记事列表
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="" title="客户满意度调查">
+
+                                         <span class="item_Doute">
+                                            <img src="./customer_Guide_Images/item.gif" alt="">
+                                        </span>
+                                        客户满意度调查
+                                    </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <!--底部边线-->
+                <table style="width:100%; height:5px; " cellspacing="0" cellpadding="0" border="0">
+                    <tbody>
+                    <tr>
+                        <td class="module_Middle_Bottom" style=" ">
+
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+
+            <!--折叠按钮-->
+            <td style="width:25px;"   valign="top">
+                <table class="tb_Btn" style="width:25px; height:33px;" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                    <tr>
+                        <td class="module_Middle" style="">
+                            <a href="#" >
+                                <img src="./customer_Guide_Images/expand-hover.png" border="0">
+                            </a>
+                        </td>
+
+                        <td class="module_Right" style="width:6px;"></td>
+
+                    </tr>
+                    </tbody>
+                </table>
+
+                <div class="div_Right_Content" style="height:441px; border-right: 1px solid #e0e4ed"></div>
+
+                <table style="width: 25px ;height: 5px" cellspacing="0" cellpadding="0" border="0">
+                    <tbody>
+                    <tr>
+                        <td class="modulel_Middle_Bottom" style=" height:10px"></td >
+                        <td class="module_Right_Bottom" style="width:6px;"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</form>
+</body>
+</html>

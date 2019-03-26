@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>top</title>
+    <script src="./js/jquery.min.js"></script>
+    <style>
+        body{
+            margin:0;
+            font-size: 9pt;
+        }
+
+        /*a标签*/
+        .top_Item a:hover{
+            text-decoration: none;
+            color:#f00;
+        }
+
+
+
+        /*顶部logo和tab*/
+        .top_div{
+            background:url("./top_images/textureBg.png");
+        }
+
+        #td_Tab_List{
+             vertical-align: bottom;
+        }
+
+
+
+        #img_Pop_Tab{
+            background: url("./top_images/1.png");
+            width: 16px;
+            height: 16px;
+            margin-left: 5px;
+        }
+        a{
+            text-decoration: none;
+            color:black;
+        }
+        a:hover{
+            color:#f00;
+        }
+
+        #td_Nav a{
+            color:white;
+        }
+        /*.tab_Selected_Left{*/
+            /*background: url("./top_images/tab_Selected_Left.png") no-repeat;*/
+            /*width: 8px;*/
+            /*height: 30px;*/
+        /*}*/
+        /*.tab_Selected_Middle{*/
+            /*background: url("./top_images/tab_Selected_Middle.png") repeat-x center bottom;*/
+            /*padding-left: 5px;*/
+            /*padding-right: 5px;*/
+            /*text-align: center;*/
+            /*height: 30px;*/
+
+        /*}*/
+        /*.tab_Selected_Middle a {*/
+
+            /*display: block;*/
+            /*padding-top: 4px;*/
+            /*color: White;*/
+
+        /*}*/
+        /*.tab_Selected_Right{*/
+            /*background: url("./top_images/tab_Selected_Right.png") no-repeat;*/
+            /*width: 8px;*/
+            /*height: 30px;*/
+        /*}*/
+
+        /*顶部关于和建议*/
+        #top_bar{
+            position: absolute;
+            right:10px;
+            top:10px;
+        }
+
+
+        /*顶部问候栏*/
+        .last{
+             height:30px;
+            width:100%;
+        }
+
+        .top_Main_BgColor{
+            background-color: #6093bd;
+        }
+
+
+        /*要移植的*/
+
+
+        .folder_Icon{
+            background: url("./main_Images/folder.gif") no-repeat;
+             width: 16px;
+            height: 16px;
+        }
+        .edit_Icon{
+            background: url("./main_Images/edit.gif") no-repeat;
+             width: 16px;
+            height: 16px;
+        }
+        .member_Icon{
+            background: url("./main_Images/member.gif") no-repeat;
+             width: 16px;
+            height: 16px;
+        }
+
+        .export_Item{
+            margin-left: 14px;
+            width: 171px;
+            height: 116px;
+            margin-top: 5px;
+        }
+        .export_Item a{
+            width: 145px;
+            display: block;
+            text-indent: 25px;
+            height: 23px;
+            line-height: 23px;
+        }
+
+        .export_Item a:hover{
+            background-color: #6093bd;
+            color:white;
+        }
+
+        #div_Pop_Tab_Menu{
+            background-color: #fcfcfc;
+            border:1px solid #919191;
+            width: 165px;
+            margin-left: 677px;
+            height:102px;
+            margin-top: -30px;
+            display: none;
+        }
+
+        .bg_Blue{
+            background-color: #6093bd;
+            border-top-left-radius: 9px;
+            border-top-right-radius: 9px;
+            width: 58px;
+            height: 35.5px;
+        }
+        .top_Item{
+            padding-right: 13px;
+            height: 36.5px;
+            /*position:absolute;*/
+        }
+        .top_Item a{
+            text-decoration: none;
+            /*color:black;*/
+            padding-left: 10px;
+            display: block;
+        }
+        .top_Item > a{
+            display: block;
+            padding-top: 4px;
+            color: White;
+        }
+
+        /*ul > li.on > ul{ display: block;}*/
+       div .on{
+            display: block;
+        }
+    </style>
+
+    <script>
+
+        $(function () {
+            //下拉菜单
+            $("#img_Pop_Tab").mouseover(function () {
+                $("#div_Pop_Tab_Menu").toggle();
+            });
+            // $("#img_Pop_Tab").mouseout(function () {
+            //     // $("#div_Pop_Tab_Menu").hide();
+            //     $("#div_Pop_Tab_Menu").toggle();
+            // })
+
+
+            // $("#img_Pop_Tab").hover(function(){
+            //         $("#div_Pop_Tab_Menu").addClass("on");
+            //
+            //     },
+            //     function(){
+            //         $("#div_Pop_Tab_Menu").removeClass("on");
+            //     })
+
+            //点击主模块增加背景色
+            $(".top_Item").click(function () {
+            $(this).addClass("bg_Blue").siblings(".top_Item").removeClass("bg_Blue");
+        });
+
+        })
+
+    </script>
+</head>
+
+<body>
+
+<!--表单主体-->
+<form action="">
+
+    <div></div>
+    <!--顶部logo和tab-->
+    <div class="top_div" style="display: block">
+
+        <table width="100%" height="60" border="0" cellspacing="0" cellpadding="0" >
+          <tbody>
+          <tr>
+              <!--图标列-->
+              <td id="td_left" class="top_bg1" style="width:295px; padding-top: 3px; ">
+                  <table cellspacing="0" cellpadding="0" border="0">
+                      <tbody>
+                       <tr>
+                           <td style="padding-left: 10px">
+
+                               <img src="./top_images/azczt1.png" style="width: 274px;height: 43.05px;">
+                           </td>
+                       </tr>
+                      </tbody>
+                  </table>
+              </td>
+              <!--菜单列-->
+              <td id="td_Tab_List" class="top_bg1" style="padding-left: 30px;">
+                  <table cellspacing="0" cellpadding="0" border="0">
+                      <tbody>
+                      <tr>
+                          <td class="top_Item bg_Blue">
+                              <table cellspacing="0" cellpadding="0" border="0">
+                                  <tbody>
+                                  <tr>
+                                      <td class="tab_Selected_Left"></td>
+                                      <td class="tab_Selected_Middle">
+                                          <a href="#">我的桌面</a>
+                                      </td>
+                                      <td class="tab_Selected_Right"></td>
+                                  </tr>
+                                  </tbody>
+                              </table>
+                          </td>
+
+                          <td class="top_Item">
+                              <table cellspacing="0" cellpadding="0" border="0">
+                                  <tbody>
+                                  <tr>
+                                      <td class="tab_UnSelected_Left"></td>
+                                      <td class="tab_UnSelected_Middle">
+                                          <a href="#">客户管理</a>
+                                      </td>
+                                      <td class="tab_UnSelected_Right"></td>
+                                  </tr>
+                                  </tbody>
+                              </table>
+                          </td>
+                          <td class="top_Item">
+                              <table cellspacing="0" cellpadding="0" border="0">
+                                  <tbody>
+                                  <tr>
+                                      <td class="tab_UnSelected_Left"></td>
+                                      <td class="tab_UnSelected_Middle">
+                                          <a href="#">产品管理</a>
+                                      </td>
+                                      <td class="tab_UnSelected_Right"></td>
+                                  </tr>
+                                  </tbody>
+                              </table>
+                          </td>
+                          <td class="top_Item">
+                          <table cellspacing="0" cellpadding="0" border="0">
+                              <tbody>
+                              <tr>
+                                  <td class="tab_UnSelected_Left"></td>
+                                  <td class="tab_UnSelected_Middle">
+                                      <a href="#">销售管理</a>
+                                  </td>
+                                  <td class="tab_UnSelected_Right"></td>
+                              </tr>
+                              </tbody>
+                          </table>
+                      </td>
+                          <td class="top_Item">
+                          <table cellspacing="0" cellpadding="0" border="0">
+                              <tbody>
+                              <tr>
+                                  <td class="tab_UnSelected_Left"></td>
+                                  <td class="tab_UnSelected_Middle">
+                                      <a href="#">系统设置</a>
+                                  </td>
+                                  <td class="tab_UnSelected_Right"></td>
+                              </tr>
+                              </tbody>
+                          </table>
+                      </td>
+                          <td class="top_Item">
+                          <table cellspacing="0" cellpadding="0" border="0">
+                              <tbody>
+                              <tr>
+                                  <td class="tab_UnSelected_Left"></td>
+                                  <td class="tab_UnSelected_Middle">
+                                      <a href="#">采购管理</a>
+                                  </td>
+                                  <td class="tab_UnSelected_Right"></td>
+                              </tr>
+                              </tbody>
+                          </table>
+                      </td>
+                          <td class="top_Item">
+                          <table cellspacing="0" cellpadding="0" border="0">
+                              <tbody>
+                              <tr>
+                                  <td class="tab_UnSelected_Left"></td>
+                                  <td class="tab_UnSelected_Middle">
+                                      <a href="#">人事管理</a>
+                                  </td>
+                                  <td class="tab_UnSelected_Right"></td>
+                              </tr>
+                              </tbody>
+                          </table>
+                      </td>
+
+                          <td>
+                              <a id="img_Pop_Tab" style="display: block;" href=""></a>
+                          </td>
+                      </tr>
+                      </tbody>
+                  </table>
+              </td>
+          </tr>
+          </tbody>
+        </table>
+
+    </div>
+    <!--顶部关于和建议-->
+    <div id="top_bar">
+        <a href="" title="关于">关于</a>
+
+        <img src="./top_images/book_open.gif" style="margin-left: 2px"  align="absmiddle" alt="">
+        <a href="" title="帮助">帮助</a>
+
+        <img src="./top_images/exit.png" style="margin-left: 2px"  align="absmiddle" alt="">
+        <a href="" title="退出">退出</a>
+    </div>
+    <!--顶部 问候栏-->
+    <table cellpadding="0" cellspacing="0" border="0" class="last" style="color:white">
+        <tbody>
+        <tr>
+            <td class="top_Main_BgColor">
+                <img src="./top_images/user.png"  >
+                <span>软件开发部  >> ${user} ， 早上好 ！</span>
+            </td>
+            
+
+        </tr>
+        </tbody>
+    </table>
+
+</form>
+
+
+<!--隐藏项-->
+<div id="div_Pop_Tab_Menu" >
+    <div class="export_Item" >
+        <a href="" class="folder_Icon" title="联系人">联系人</a>
+        <a href="" class="folder_Icon" title="统计分析" style="border-bottom: 1px solid #fff0cb">统计分析</a>
+        <a href="" class="edit_Icon" title="自定义标签">自定义标签</a>
+        <a href="" class="member_Icon" title="自定义菜单">自定义菜单</a>
+    </div>
+
+</div>
+
+</body>
+
+</html>
